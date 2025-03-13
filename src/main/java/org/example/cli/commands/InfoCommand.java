@@ -19,7 +19,7 @@ public class InfoCommand<T> extends Command<T> {
     }
 
     @Override
-    public void execute(Map<CommandFlag, String> flags) {
+    public void execute(final Map<CommandFlag, String> flags) {
         System.out.println(message);
     }
 }

@@ -15,7 +15,7 @@ public class EditCommand<T> extends Command<T> {
     private CRUD<T> model;
 
     @Override
-    public void execute(Map<CommandFlag, String> flags) {
+    public void execute(final Map<CommandFlag, String> flags) {
         try {
             int id = Integer.parseInt(flags.get(CommandFlag.ID));
             String fieldName = flags.get(CommandFlag.EDIT_FIELD);

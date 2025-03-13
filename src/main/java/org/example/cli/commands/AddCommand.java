@@ -17,7 +17,7 @@ public class AddCommand<T> extends Command<T> {
     private CRUD<T> model;
     private final AbstractFactory<T> factory;
 
-    private Object[] collectArgValues(Map<CommandFlag, String> flags) {
+    private Object[] collectArgValues(final Map<CommandFlag, String> flags) {
         return flags.keySet().stream()
                 .filter(e -> e.toString().startsWith("arg"))
                 .sorted()
@@ -26,7 +26,7 @@ public class AddCommand<T> extends Command<T> {
     }
 
     @Override
-    public void execute(Map<CommandFlag, String> flags) {
+    public void execute(final Map<CommandFlag, String> flags) {
         try {
             Object[] args = collectArgValues(flags);
             T newObject = factory.newObject(args);

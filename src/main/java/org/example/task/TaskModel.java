@@ -9,13 +9,13 @@ public class TaskModel implements CRUD<Task> {
     private final Map<Integer, Task> tasks = new HashMap<>();
 
     @Override
-    public Task create(Task task) {
+    public Task create(final Task task) {
         tasks.put(task.getId(), task);
         return task;
     }
 
     @Override
-    public Task read(int id) {
+    public Task read(final int id) {
         return tasks.get(id);
     }
 
@@ -25,13 +25,13 @@ public class TaskModel implements CRUD<Task> {
     }
 
     @Override
-    public Task update(Task task) {
+    public Task update(final Task task) {
         tasks.put(task.getId(), task);
         return task;
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(final int id) {
         tasks.remove(id);
     }
 }

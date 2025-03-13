@@ -41,5 +41,5 @@ public abstract class Command<T> {
         }
     }
 
-    public abstract void execute(Map<CommandFlag, String> flags);
+    public abstract void execute(final Map<CommandFlag, String> flags);
 }

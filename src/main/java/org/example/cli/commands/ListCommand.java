@@ -14,7 +14,7 @@ public class ListCommand<T> extends Command<T> {
     private CRUD<T> model;
 
     @Override
-    public void execute(Map<CommandFlag, String> flags) {
+    public void execute(final Map<CommandFlag, String> flags) {
         try {
             List<T> objectsList = model.read();
             System.out.println("There are " + objectsList.size() + " items:");

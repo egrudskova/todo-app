@@ -16,7 +16,7 @@ public class FilterCommand<T> extends Command<T> {
     private CRUD<T> model;
 
     @Override
-    public void execute(Map<CommandFlag, String> flags) {
+    public void execute(final Map<CommandFlag, String> flags) {
         try {
             List<T> objectsList = model.read();
             String fieldName = flags.get(CommandFlag.FILTER_FIELD);

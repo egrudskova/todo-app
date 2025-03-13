@@ -14,7 +14,7 @@ public class ExitCommand<T> extends Command<T> {
     private CRUD<T> model;
 
     @Override
-    public void execute(Map<CommandFlag, String> flags) {
+    public void execute(final Map<CommandFlag, String> flags) {
         throw new EndOfProgramException("Exit command was executed. Bye");
     }
 }

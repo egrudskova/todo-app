@@ -24,7 +24,7 @@ public enum CommandFlag {
         return name;
     }
 
-    public static CommandFlag findFlag(String flagName) {
+    public static CommandFlag findFlag(final String flagName) {
         return Arrays.stream(CommandFlag.values())
                 .filter((el) -> el.toString().equals(flagName))
                 .findFirst()
