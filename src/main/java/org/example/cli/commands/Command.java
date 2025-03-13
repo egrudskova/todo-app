@@ -6,6 +6,7 @@ import org.example.task.CRUD;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 @Getter
@@ -40,5 +41,5 @@ public abstract class Command<T> {
         }
     }
 
-    public abstract void execute(CommandSettings<T> settings);
+    public abstract void execute(Map<CommandFlag, String> flags);
 }

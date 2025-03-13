@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.example.task.CRUD;
 
+import java.util.Map;
+
 @Getter
 public class InfoCommand<T> extends Command<T> {
     private final String name = "info";
@@ -17,7 +19,7 @@ public class InfoCommand<T> extends Command<T> {
     }
 
     @Override
-    public void execute(CommandSettings<T> settings) {
+    public void execute(Map<CommandFlag, String> flags) {
         System.out.println(message);
     }
 }

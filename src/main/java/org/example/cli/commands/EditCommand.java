@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.example.task.CRUD;
 
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 @Getter
@@ -14,11 +15,11 @@ public class EditCommand<T> extends Command<T> {
     private CRUD<T> model;
 
     @Override
-    public void execute(CommandSettings<T> settings) {
+    public void execute(Map<CommandFlag, String> flags) {
         try {
-            int id = Integer.parseInt(settings.getFlags().get(CommandFlag.ID));
-            String fieldName = settings.getFlags().get(CommandFlag.EDIT_FIELD);
-            String selectedValue = settings.getFlags().get(CommandFlag.EDIT_VALUE);
+            int id = Integer.parseInt(flags.get(CommandFlag.ID));
+            String fieldName = flags.get(CommandFlag.EDIT_FIELD);
+            String selectedValue = flags.get(CommandFlag.EDIT_VALUE);
 
             if (fieldName == null) {
                 throw new NoSuchElementException("No field selected");

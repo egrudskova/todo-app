@@ -6,6 +6,7 @@ import org.example.task.CRUD;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 @Getter
@@ -15,10 +16,10 @@ public class SortCommand<T> extends Command<T> {
     private CRUD<T> model;
 
     @Override
-    public void execute(CommandSettings<T> settings) {
+    public void execute(Map<CommandFlag, String> flags) {
         try {
             List<T> objectsList = model.read();
-            String fieldName = settings.getFlags().get(CommandFlag.SORT_FIELD);
+            String fieldName = flags.get(CommandFlag.SORT_FIELD);
 
             if (fieldName == null) {
                 throw new NoSuchElementException("No field selected");

@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.example.cli.commands.Command;
 import org.example.cli.commands.CommandFlag;
-import org.example.cli.commands.CommandSettings;
 import org.example.task.CRUD;
 
 import java.util.HashMap;
@@ -60,7 +59,7 @@ public abstract class CLIApplication<T> {
             }
             Command<T> command = parseCommand(input);
             Map<CommandFlag, String> flags = parseFlags(input);
-            command.execute(new CommandSettings<>(flags));
+            command.execute(flags);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }

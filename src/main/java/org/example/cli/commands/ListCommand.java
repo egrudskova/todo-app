@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.example.task.CRUD;
 
 import java.util.List;
+import java.util.Map;
 
 @Getter
 public class ListCommand<T> extends Command<T> {
@@ -13,7 +14,7 @@ public class ListCommand<T> extends Command<T> {
     private CRUD<T> model;
 
     @Override
-    public void execute(CommandSettings<T> settings) {
+    public void execute(Map<CommandFlag, String> flags) {
         try {
             List<T> objectsList = model.read();
             System.out.println("There are " + objectsList.size() + " items:");

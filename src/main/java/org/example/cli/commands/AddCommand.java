@@ -26,9 +26,9 @@ public class AddCommand<T> extends Command<T> {
     }
 
     @Override
-    public void execute(CommandSettings<T> settings) {
+    public void execute(Map<CommandFlag, String> flags) {
         try {
-            Object[] args = collectArgValues(settings.getFlags());
+            Object[] args = collectArgValues(flags);
             T newObject = factory.newObject(args);
 
             if (newObject == null) {
