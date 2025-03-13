@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id("io.freefair.lombok") version "8.12.2.1"
 }
 
 group = 'org.example'
@@ -14,9 +15,15 @@ repositories {
     mavenCentral()
 }
 
+
+run {
+    standardInput = System.in
+}
+
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation group: 'io.github.kostaskougios', name: 'cloning', version: '1.12.0'
 }
 
 test {
